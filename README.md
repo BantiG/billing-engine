@@ -8,6 +8,12 @@
    
    mvn clean install
 
+   ### Run the build while skipping test execution
+   mvn clean install -DskipTests 
+
+   ### Skip compiling and running tests
+   mvn clean install -Dmaven.test.skip=true
+
 
 2. Start the application:
    
@@ -55,7 +61,9 @@ curl http://localhost:8080/api/policies/delinquent
 curl -X POST http://localhost:8080/api/policies/POL123/retry
 
 # Create policy with validation
-curl -X POST http://localhost:8080/api/policies -H "Content-Type: application/json" -d '{"id":"POL123", "startDate":"2025-01-01", "endDate":"2025-04-01", "premiumAmount":150.0}'
+curl -X POST http://localhost:8080/api/policies 
+-H "Content-Type: application/json" 
+-d '{"id":"POL123", "startDate":"2025-01-01", "endDate":"2025-04-01", "premiumAmount":150.0}'
 
 
 Run automated tests:
